@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaxsiy Kabinet - Polk Design</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .user-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .welcome-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            border: none;
+            border-radius: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Welcome Section -->
+                <div class="welcome-section">
+                    <h1 class="display-4 fw-bold mb-3">🎉 Tabriklaymiz!</h1>
+                    <p class="lead mb-4">Siz oddiy foydalanuvchi sifatida Polk Design tizimiga muvaffaqiyatli kirdingiz</p>
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <div class="bg-white rounded-circle d-flex align-items-center justify-content-center" 
+                                 style="width: 80px; height: 80px;">
+                                <i class="fas fa-user-check fa-2x text-primary"></i>
+                            </div>
+                            <p class="mt-2 mb-0 text-white">Tasdiqlangan User</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Info -->
+                <div class="user-card p-4 mb-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h3 class="fw-bold mb-3">
+                                <i class="fas fa-user me-2 text-primary"></i>
+                                Shaxsiy Ma'lumotlar
+                            </h3>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <strong>👤 Login:</strong><br>
+                                    <span class="text-primary">{{ user.username }}</span>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <strong>📧 Email:</strong><br>
+                                    {% if user.email %}
+                                        <span class="text-success">{{ user.email }}</span>
+                                    {% else %}
+                                        <span class="text-muted">Email qo'shilmagan</span>
+                                    {% endif %}
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <strong>📅 Ro'yhatdan o'tgan:</strong><br>
+                                    <span class="text-info">{{ user.date_joined|date:"d.m.Y" }}</span>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <strong>🎯 Status:</strong><br>
+                                    <span class="badge bg-success">
+                                        <i class="fas fa-check-circle me-1"></i>Aktiv
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center" 
+                                 style="width: 120px; height: 120px;">
+                                <span class="text-white fw-bold" style="font-size: 3rem;">
+                                    {{ user.username|first|upper }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-3">
+                        <div class="stat-card text-center p-4">
+                            <div class="text-primary mb-3">
+                                <i class="fas fa-project-diagram fa-3x"></i>
+                            </div>
+                            <h3 class="fw-bold text-primary">5</h3>
+                            <p class="text-muted mb-0">Loyihalar</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card text-center p-4">
+                            <div class="text-success mb-3">
+                                <i class="fas fa-comments fa-3x"></i>
+                            </div>
+                            <h3 class="fw-bold text-success">12</h3>
+                            <p class="text-muted mb-0">Xabarlar</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card text-center p-4">
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-star fa-3x"></i>
+                            </div>
+                            <h3 class="fw-bold text-warning">4.8</h3>
+                            <p class="text-muted mb-0">Reyting</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card text-center p-4">
+                            <div class="text-info mb-3">
+                                <i class="fas fa-clock fa-3x"></i>
+                            </div>
+                            <h3 class="fw-bold text-info">3</h3>
+                            <p class="text-muted mb-0">Faol Kun</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="user-card p-4">
+                    <h4 class="fw-bold mb-4">
+                        <i class="fas fa-rocket me-2 text-warning"></i>
+                        Tezkor Amallar
+                    </h4>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <a href="/design/" class="btn btn-outline-primary w-100 py-3">
+                                <i class="fas fa-palette me-2"></i>Loyihalarni Ko'rish
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/contact/" class="btn btn-outline-success w-100 py-3">
+                                <i class="fas fa-envelope me-2"></i>Aloqa
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/" class="btn btn-outline-secondary w-100 py-3">
+                                <i class="fas fa-home me-2"></i>Bosh Sahifa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<!-- User dashboard oxiriga qo'shing -->
+<div class="container mt-4">
+    <div class="text-center">
+        <a href="/" class="btn btn-primary">
+            <i class="fas fa-home me-2"></i>Bosh Sahifaga Qaytish
+        </a>
+    </div>
+</div>
